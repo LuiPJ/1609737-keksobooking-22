@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Никита Канаев](https://up.htmlacademy.ru/javascript/22/user/1609737).
-* Наставник: `Владислав Зубко`.
+* Наставник: `Владислав Зубко`(https://htmlacademy.ru/profile/whatislove)
 
 ---
 
