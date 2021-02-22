@@ -20,7 +20,7 @@ const getRandomNumberComma = (min, max, comma) => {
 
 export {getRandomNumber, getRandomNumberComma}
 
-const randomValues = (arr) => {
+const getRandomValues = (arr) => {
   return arr.slice(getRandomNumber(1, arr.length - 1));
 }
 
@@ -38,29 +38,35 @@ const TITLE = ['Маленькая студия','Большая студия','
 
 const DESCRIPTION= ['Цена - качество','Красивый вид','Рядом магазины','Близко к остановке'];
 
-const MakeRandomItems = () => {
-  const LocationX = getRandomNumberComma(35.65000, 35.70000, 5);
-  const LocationY = getRandomNumberComma(139.70000, 139.80000, 5);
+const createAd = () => {
+  const locationX = getRandomNumberComma(35.65000, 35.70000, 5);
+  const locationY = getRandomNumberComma(139.70000, 139.80000, 5);
 
   const addItems = {
     author: {
       avatar: `img/avatars/user0${getRandomNumber(1, 8)}.png`,
     },
     offer: {
-      title: randomValues(TITLE),
-      address: LocationX + ', ' + LocationY,
+      title: getRandomValues(TITLE),
+      address: locationX + ', ' + locationY,
       price: getRandomNumber(5000, 50000),
-      type: randomValues(TYPE),
+      type: getRandomValues(TYPE),
       rooms: getRandomNumber(1, 10),
       guests: getRandomNumber(1, 5),
-      checkin: randomValues(CHECKIN),
-      checkout: randomValues(CHEKOUT),
-      features: randomValues(FEATURES),
-      description: randomValues(DESCRIPTION),
-      photos: randomValues(PHOTOS),
+      checkin: getRandomValues(CHECKIN),
+      checkout: getRandomValues(CHEKOUT),
+      features: getRandomValues(FEATURES),
+      description: getRandomValues(DESCRIPTION),
+      photos: getRandomValues(PHOTOS),
+    },
+    location: {
+      x: locationX,
+      y: locationY,
     },
   };
   return addItems;
 }
 
-MakeRandomItems();
+const ads = new Array(10).fill(null).map(() => createAd());
+
+export {ads}
