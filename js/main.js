@@ -1,4 +1,5 @@
-'use strict';
+import {createAdvert} from './advt.js'
+import {createAd} from './data.js'
 
 const TYPE = ['palace', 'flat', 'house', 'bungalow'];
 
@@ -13,5 +14,11 @@ const CHECKIN = ['12:00', '13:00', '14:00'];
 const TITLE = ['Маленькая студия', 'Большая студия', 'Аппартаменты', 'Комната', 'Бунгало', 'Уютный домик', 'Домик у побережья'];
 
 const DESCRIPTION= ['Цена - качество', 'Красивый вид', 'Рядом магазины', 'Близко к остановке'];
+
+window.onload = function() {
+  const mapCanvas = document.querySelector('#map-canvas');
+  mapCanvas.append(createAdvert(createAd(TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS)));
+};
+
 
 export { TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS };
