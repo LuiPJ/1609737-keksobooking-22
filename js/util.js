@@ -16,4 +16,10 @@ const getRandomValues = (arr) => {
   return arr.slice(getRandomNumber(1, arr.length - 1));
 }
 
-export {getRandomNumber, getRandomNumberComma, getRandomValues};
+const getRandomItem = (item) => {
+  const randomItem = item[Math.floor(Math.random() * item.length)];
+
+  return randomItem
+}
+
+export {getRandomNumber, getRandomNumberComma, getRandomValues, getRandomItem};
