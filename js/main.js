@@ -1,4 +1,4 @@
-import {createAdvert} from './advt.js'
+import {createAdvert} from './popup.js'
 import {createAd} from './data.js'
 
 const TYPE = ['palace', 'flat', 'house', 'bungalow'];
@@ -17,7 +17,9 @@ const DESCRIPTION= ['Цена - качество', 'Красивый вид', '�
 
 window.onload = function() {
   const mapCanvas = document.querySelector('#map-canvas');
-  mapCanvas.append(createAdvert(createAd(TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS)));
+  const advert = createAdvert(createAd(TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS));
+  console.log(advert);
+  mapCanvas.append(advert);
 };
 
 
