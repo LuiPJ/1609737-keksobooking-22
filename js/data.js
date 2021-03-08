@@ -10,7 +10,7 @@ const createAd = (TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS) 
       avatar: `img/avatars/user0${getRandomNumber(1, 8)}.png`,
     },
     offer: {
-      title: getRandomValues(TITLE),
+      title: getRandomItem(TITLE),
       address: locationX + ', ' + locationY,
       price: getRandomNumber(5000, 50000),
       type: type,
