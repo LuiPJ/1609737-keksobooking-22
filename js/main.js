@@ -18,7 +18,6 @@ const DESCRIPTION= ['Цена - качество', 'Красивый вид', '�
 window.onload = function() {
   const mapCanvas = document.querySelector('#map-canvas');
   const advert = createAdvert(createAd(TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS));
-  console.log(advert);
   mapCanvas.append(advert);
 };
 
