@@ -1,4 +1,3 @@
-//const typeOfHousing = {'flat': 'Квартира', 'house': 'Дом', 'bungalow': 'Бунгало', 'palace': 'Дворец'};
 const createAdvert = (ad) => {
   const adFacts = document.querySelector('#card').content.querySelector('.popup');
 
@@ -10,12 +9,20 @@ const createAdvert = (ad) => {
   adCase.querySelector('.popup__type').textContent = (ad.offer.type);
   adCase.querySelector('.popup__text--capacity').textContent = `${ad.offer.rooms} комнаты для ${ad.offer.guests} гостей`;
   adCase.querySelector('.popup__text--time').textContent = `Заезд после ${ad.offer.checkin} выезд до ${ad.offer.checkout}`;
-  adCase.querySelector('.popup__features').textContent = ad.offer.features;
+  //adCase.querySelector('.popup__features').textContent = ad.offer.features;
   adCase.querySelector('.popup__description').textContent = ad.offer.description;
-  adCase.querySelector('.popup__photos').src = ad.offer.photos;
-  adCase.querySelector('.popup__avatar').src = ad.author.avatar;
+  adCase.querySelector('.popup__photo').src = ad.offer.photos;
   adCase.querySelector('.popup__avatar').src = ad.author.avatar;
 
+  const popupFeatures = adCase.querySelectorAll('.popup__feature');
+  for (const element of popupFeatures) {
+    let flg = false;
+    for (const innerElement of ad.offer.features)
+      if (element.classList.contains('popup__feature--' + innerElement))
+        flg = true;
+    if (flg == false)
+      element.style.display = 'none';
+  }
   return adCase;
 }
 
