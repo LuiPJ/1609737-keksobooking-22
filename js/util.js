@@ -16,8 +16,8 @@ const getRandomValues = (arr) => {
   return arr.slice(getRandomNumber(1, arr.length - 1));
 }
 
-const getRandomItem = (item) => {
-  const randomItem = item[Math.floor(Math.random() * item.length)];
+const getRandomItem = (items) => {
+  const randomItem = items[Math.floor(Math.random() * items.length)];
 
   return randomItem
 }
