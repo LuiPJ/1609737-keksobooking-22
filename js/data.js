@@ -1,26 +1,25 @@
 import { getRandomNumber, getRandomNumberComma, getRandomValues, getRandomItem} from './util.js'
 
-const createAd = (TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS) => {
+const createAd = (title, type, checkin, chekout, features, description, photos) => {
   const locationX = getRandomNumberComma(35.65000, 35.70000, 5);
   const locationY = getRandomNumberComma(139.70000, 139.80000, 5);
-  const type = getRandomItem(TYPE);
 
   const addItems = {
     author: {
       avatar: `img/avatars/user0${getRandomNumber(1, 8)}.png`,
     },
     offer: {
-      title: getRandomItem(TITLE),
+      title: getRandomItem(title),
       address: locationX + ', ' + locationY,
       price: getRandomNumber(5000, 50000),
-      type: type,
+      type: getRandomItem(type),
       rooms: getRandomNumber(1, 10),
       guests: getRandomNumber(1, 5),
-      checkin: getRandomValues(CHECKIN),
-      checkout: getRandomValues(CHEKOUT),
-      features: getRandomValues(FEATURES),
-      description: getRandomValues(DESCRIPTION),
-      photos: getRandomValues(PHOTOS),
+      checkin: getRandomValues(checkin),
+      checkout: getRandomValues(chekout),
+      features: getRandomValues(features),
+      description: getRandomValues(description),
+      photos: getRandomItem(photos),
     },
     location: {
       x: locationX,
@@ -29,7 +28,5 @@ const createAd = (TITLE, TYPE, CHECKIN, CHEKOUT, FEATURES, DESCRIPTION, PHOTOS) 
   };
   return addItems;
 }
-
-//const ads = new Array(10).fill(null).map(() => createAd());
 
 export { createAd };
